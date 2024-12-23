@@ -23,11 +23,11 @@ export function Shop() {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-14 p-14">
+    <div className="grid gap-14 p-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {products &&
         products.map((product) => {
           return (
-            <Card className="grid max-w-lg" key={product.id}>
+            <Card className="grid min-w-min max-w-lg" key={product.id}>
               <CardHeader>
                 <CardTitle>{product.title}</CardTitle>
                 <CardDescription className="line-clamp-3">
@@ -39,7 +39,7 @@ export function Shop() {
               </CardContent>
               <CardFooter className="flex flex-col items-center justify-center gap-2">
                 <p>
-                  ${product.price}
+                  <span className="font-bold">${product.price}</span>
                   <span className="flex items-end gap-1">
                     <Star className="fill-yellow-300" />
                     {product.rating.rate}
