@@ -27,13 +27,17 @@ export function Shop() {
       {products &&
         products.map((product) => {
           return (
-            <Card className="max-w-lg" key={product.id}>
+            <Card className="grid max-w-lg" key={product.id}>
               <CardHeader>
                 <CardTitle>{product.title}</CardTitle>
-                <CardDescription>{product.description}</CardDescription>
+                <CardDescription className="line-clamp-3">
+                  {product.description}
+                </CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-col items-center justify-center gap-2">
-                <img src={product.image} className="w-48" />
+              <CardContent className="flex flex-col items-center justify-center">
+                <img src={product.image} className="max-w-32" />
+              </CardContent>
+              <CardFooter className="flex flex-col items-center justify-center gap-2">
                 <p>
                   ${product.price}
                   <span className="flex items-end gap-1">
@@ -42,8 +46,7 @@ export function Shop() {
                   </span>
                 </p>
                 <Button>Add to Cart</Button>
-              </CardContent>
-              <CardFooter></CardFooter>
+              </CardFooter>
             </Card>
           );
         })}
