@@ -1,11 +1,11 @@
+import { Outlet } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
-import { Shop } from "./components/Shop";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Shop />
+      <Outlet />
     </>
   );
 }
