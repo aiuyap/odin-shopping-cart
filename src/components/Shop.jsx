@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -9,22 +8,15 @@ import {
 } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link, useOutletContext } from "react-router-dom";
+import "./styles/Shop.css";
 
 export function Shop() {
-  const [products, setProducts] = useState();
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-        setProducts(json);
-      });
-  }, []);
+  const products = useOutletContext();
 
   return (
     <div className="grid gap-14 p-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {products &&
+      {products ? (
         products.map((product) => {
           return (
             <Card className="grid min-w-min max-w-lg" key={product.id}>
@@ -45,11 +37,21 @@ export function Shop() {
                     {product.rating.rate}
                   </span>
                 </p>
-                <Button>Add to Cart</Button>
+                <div className="space-x-4">
+                  <Link to={`/shop/${product.id}`}>
+                    <Button>View</Button>
+                  </Link>
+                  <Button>Add to Cart</Button>
+                </div>
               </CardFooter>
             </Card>
           );
-        })}
+        })
+      ) : (
+        <div className="flex w-screen items-center justify-center px-14">
+          <span className="loading"></span>
+        </div>
+      )}
     </div>
   );
 }
