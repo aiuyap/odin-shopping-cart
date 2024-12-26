@@ -10,7 +10,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import "./styles/Shop.css";
 
 export function Shop() {
-  const products = useOutletContext();
+  const { products } = useOutletContext();
 
   return (
     <div className="grid gap-14 p-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

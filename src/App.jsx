@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [products, setProducts] = useState();
+  const [itemOnCart, setItemOnCart] = useState(0);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -16,8 +17,14 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Outlet context={products} />
+      <Navbar itemOnCart={itemOnCart} />
+      <Outlet
+        context={{
+          products: products,
+          itemOnCart: itemOnCart,
+          setItemOnCart: setItemOnCart,
+        }}
+      />
     </>
   );
 }
