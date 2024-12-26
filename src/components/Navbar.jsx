@@ -8,8 +8,12 @@ export function Navbar() {
         TheShop
       </Link>
       <nav className="flex justify-center gap-4 text-xl">
-        <Link to="/">Home</Link>
-        <Link to="/shop">Shop</Link>
+        <Link to="/" className="hover:underline active:underline">
+          Home
+        </Link>
+        <Link to="/shop" className="hover:underline active:underline">
+          Shop
+        </Link>
       </nav>
       <ShoppingCart />
     </div>
