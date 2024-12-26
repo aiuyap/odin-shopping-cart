@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export function Navbar({ itemOnCart }) {
+  let numOfItems = 0;
+
+  itemOnCart.forEach((item) => {
+    numOfItems = numOfItems + item.amount;
+  });
+
   return (
     <div className="fixed flex h-12 w-screen items-center justify-between bg-black px-8 text-white shadow-md">
       <Link to="/" className="text-3xl font-bold">
@@ -16,10 +22,12 @@ export function Navbar({ itemOnCart }) {
           Shop
         </Link>
       </nav>
-      <div className="flex">
-        <span className="relative flex size-5 items-center justify-center rounded-full bg-red-600 px-0.5 text-xs font-bold">
-          {itemOnCart}
-        </span>
+      <div className="flex cursor-pointer">
+        {numOfItems > 0 && (
+          <span className="relative flex size-5 items-center justify-center rounded-full bg-red-600 px-0.5 text-xs font-bold">
+            {numOfItems}
+          </span>
+        )}
         <ShoppingCart />
       </div>
     </div>
@@ -27,5 +35,5 @@ export function Navbar({ itemOnCart }) {
 }
 
 Navbar.propTypes = {
-  itemOnCart: PropTypes.number,
+  itemOnCart: PropTypes.array,
 };

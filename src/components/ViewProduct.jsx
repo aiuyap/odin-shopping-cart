@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 import { useState } from "react";
 
 export function ViewProduct() {
-  const { products } = useOutletContext();
+  const { products, addToCart } = useOutletContext();
   const params = useParams();
   const id = Number(params.id) - 1;
   const [numOfItems, setNumOfItems] = useState(1);
@@ -55,7 +55,9 @@ export function ViewProduct() {
           <Button variant="outline" onClick={addNumOfItem}>
             +
           </Button>
-          <Button>Add to Cart</Button>
+          <Button onClick={() => addToCart(Number(params.id), numOfItems)}>
+            Add to Cart
+          </Button>
         </div>
       </div>
     </div>

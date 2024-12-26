@@ -10,7 +10,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import "./styles/Shop.css";
 
 export function Shop() {
-  const { products } = useOutletContext();
+  const { products, addToCart } = useOutletContext();
 
   return (
     <div className="grid gap-14 p-14 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -32,7 +32,9 @@ export function Shop() {
                   <Link to={`/shop/${product.id}`}>
                     <Button variant="outline">View</Button>
                   </Link>
-                  <Button>Add to Cart</Button>
+                  <Button onClick={() => addToCart(product.id, 1)}>
+                    Add to Cart
+                  </Button>
                 </div>
               </CardFooter>
             </Card>
