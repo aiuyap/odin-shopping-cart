@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 import { useState } from "react";
 
 export function ViewProduct() {
-  const products = useOutletContext();
+  const { products } = useOutletContext();
   const params = useParams();
   const id = Number(params.id) - 1;
   const [numOfItems, setNumOfItems] = useState(1);
@@ -31,7 +31,7 @@ export function ViewProduct() {
         <h3 className="text-center text-sm text-gray-500">
           {products[id].category}
         </h3>
-        <h2>{products[id].description}</h2>
+        <h2 className="text-sm">{products[id].description}</h2>
         <img
           src={products[id].image}
           className="w-80 justify-self-center py-8"
