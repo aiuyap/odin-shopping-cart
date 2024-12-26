@@ -1,12 +1,10 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Star } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link, useOutletContext } from "react-router-dom";
 import "./styles/Shop.css";
@@ -22,9 +20,6 @@ export function Shop() {
             <Card className="grid min-w-min max-w-lg" key={product.id}>
               <CardHeader>
                 <CardTitle>{product.title}</CardTitle>
-                <CardDescription className="line-clamp-3">
-                  {product.description}
-                </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col items-center justify-center">
                 <img src={product.image} className="max-w-32" />
@@ -32,14 +27,10 @@ export function Shop() {
               <CardFooter className="flex flex-col items-center justify-center gap-2">
                 <p>
                   <span className="font-bold">${product.price}</span>
-                  <span className="flex items-end gap-1">
-                    <Star className="fill-yellow-300" />
-                    {product.rating.rate}
-                  </span>
                 </p>
                 <div className="space-x-4">
                   <Link to={`/shop/${product.id}`}>
-                    <Button>View</Button>
+                    <Button variant="outline">View</Button>
                   </Link>
                   <Button>Add to Cart</Button>
                 </div>
