@@ -15,7 +15,12 @@ export function Navbar() {
           Shop
         </Link>
       </nav>
-      <ShoppingCart />
+      <div className="flex">
+        <span className="relative flex size-5 items-center justify-center rounded-full bg-red-600 px-0.5 text-xs font-bold">
+          1
+        </span>
+        <ShoppingCart />
+      </div>
     </div>
   );
 }
