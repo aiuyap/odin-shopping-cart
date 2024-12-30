@@ -16,10 +16,14 @@ export function Cart() {
     newArr.forEach((item) => {
       if (item.id === id) {
         if (isAdd) item.amount = item.amount + 1;
-        else item.amount = item.amount - 1;
+        else if (item.amount > 1) item.amount = item.amount - 1;
       }
     });
     setItemOnCart(newArr);
+  }
+
+  function calculateItemSubtotal(price, amount) {
+    return (price * amount).toFixed(2);
   }
 
   return (
@@ -41,7 +45,11 @@ export function Cart() {
                   <h2>{products[item.id - 1].title}</h2>
                   <div className="flex items-center gap-4">
                     <p className="text-lg font-bold">
-                      ${products[item.id - 1].price}
+                      $
+                      {calculateItemSubtotal(
+                        products[item.id - 1].price,
+                        item.amount,
+                      )}
                     </p>
                     <div className="flex items-center">
                       <Button
