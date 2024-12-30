@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { useOutletContext } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Trash2 } from "lucide-react";
-import { Input } from "./ui/input";
 
 export function Cart() {
   const { products, itemOnCart } = useOutletContext();
@@ -25,11 +24,11 @@ export function Cart() {
                 <img src={products[item.id - 1].image} className="w-14" />
                 <div className="grid">
                   <h2>{products[item.id - 1].title}</h2>
-                  <div className="flex gap-4">
+                  <div className="flex items-center gap-4">
                     <p className="text-lg font-bold">
                       ${products[item.id - 1].price}
                     </p>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
                       <Button variant="outline">-</Button>
                       {item.amount}
                       <Button variant="outline">+</Button>
