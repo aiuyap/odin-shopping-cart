@@ -22,14 +22,16 @@ export function Navbar({ itemOnCart }) {
           Shop
         </Link>
       </nav>
-      <div className="flex cursor-pointer">
-        {numOfItems > 0 && (
-          <span className="relative flex size-5 items-center justify-center rounded-full bg-red-600 px-0.5 text-xs font-bold">
-            {numOfItems}
-          </span>
-        )}
-        <ShoppingCart />
-      </div>
+      <Link to="/cart">
+        <div className="flex cursor-pointer">
+          {numOfItems > 0 && (
+            <span className="relative flex size-5 items-center justify-center rounded-full bg-red-600 px-0.5 text-xs font-bold">
+              {numOfItems}
+            </span>
+          )}
+          <ShoppingCart />
+        </div>
+      </Link>
     </div>
   );
 }

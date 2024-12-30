@@ -2,6 +2,7 @@ import App from "@/App";
 import { Shop } from "./Shop";
 import { Home } from "./Home";
 import { ViewProduct } from "./ViewProduct";
+import { Cart } from "./Cart";
 
 export const routes = [
   {
@@ -19,6 +20,10 @@ export const routes = [
       {
         path: "shop/:id",
         element: <ViewProduct />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },
