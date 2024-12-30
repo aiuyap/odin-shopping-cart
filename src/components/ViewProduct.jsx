@@ -1,7 +1,6 @@
 import { Star } from "lucide-react";
 import { useOutletContext, useParams } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { useState } from "react";
 
 export function ViewProduct() {
@@ -9,10 +8,6 @@ export function ViewProduct() {
   const params = useParams();
   const id = Number(params.id) - 1;
   const [numOfItems, setNumOfItems] = useState(1);
-
-  function handleText(e) {
-    setNumOfItems(e.target.value);
-  }
 
   function addNumOfItem() {
     setNumOfItems((numOfItems) => numOfItems + 1);
@@ -41,17 +36,11 @@ export function ViewProduct() {
           {products[id].rating.rate} <Star className="inline fill-yellow-300" />
           {products[id].rating.count} reviews
         </p>
-        <div className="flex justify-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <Button variant="outline" onClick={decreaseNumOfItem}>
             -
           </Button>
-          <Input
-            value={numOfItems}
-            onChange={handleText}
-            type="number"
-            min="1"
-            className="w-20"
-          />
+          <p>{numOfItems}</p>
           <Button variant="outline" onClick={addNumOfItem}>
             +
           </Button>
