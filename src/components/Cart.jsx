@@ -11,6 +11,17 @@ export function Cart() {
     setItemOnCart(itemOnCart.filter((item) => item.id !== id));
   }
 
+  function changeItemAmount(id, isAdd) {
+    const newArr = [...itemOnCart];
+    newArr.forEach((item) => {
+      if (item.id === id) {
+        if (isAdd) item.amount = item.amount + 1;
+        else item.amount = item.amount - 1;
+      }
+    });
+    setItemOnCart(newArr);
+  }
+
   return (
     <div className="flex justify-center p-14">
       <Card className="p-4">
@@ -33,9 +44,19 @@ export function Cart() {
                       ${products[item.id - 1].price}
                     </p>
                     <div className="flex items-center">
-                      <Button variant="ghost">-</Button>
+                      <Button
+                        variant="ghost"
+                        onClick={() => changeItemAmount(item.id, false)}
+                      >
+                        -
+                      </Button>
                       {item.amount}
-                      <Button variant="ghost">+</Button>
+                      <Button
+                        variant="ghost"
+                        onClick={() => changeItemAmount(item.id, true)}
+                      >
+                        +
+                      </Button>
                     </div>
                   </div>
                 </div>
