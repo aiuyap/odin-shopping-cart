@@ -5,7 +5,11 @@ import { Button } from "./ui/button";
 import { Trash2 } from "lucide-react";
 
 export function Cart() {
-  const { products, itemOnCart } = useOutletContext();
+  const { products, itemOnCart, setItemOnCart } = useOutletContext();
+
+  function removeItem(id) {
+    setItemOnCart(itemOnCart.filter((item) => item.id !== id));
+  }
 
   return (
     <div className="flex justify-center p-14">
@@ -28,15 +32,18 @@ export function Cart() {
                     <p className="text-lg font-bold">
                       ${products[item.id - 1].price}
                     </p>
-                    <div className="flex items-center gap-2">
-                      <Button variant="outline">-</Button>
+                    <div className="flex items-center">
+                      <Button variant="ghost">-</Button>
                       {item.amount}
-                      <Button variant="outline">+</Button>
+                      <Button variant="ghost">+</Button>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <Button variant="destructive">
+                  <Button
+                    variant="destructive"
+                    onClick={() => removeItem(item.id)}
+                  >
                     <Trash2 />
                   </Button>
                 </div>
