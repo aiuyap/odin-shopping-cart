@@ -50,7 +50,7 @@ export function Cart() {
               return (
                 <div
                   key={item.id}
-                  className="grid-cols-custom-grid grid items-center gap-4"
+                  className="grid grid-cols-custom-grid items-center gap-4"
                 >
                   <img src={products[item.id - 1].image} className="w-14" />
                   <div className="grid">
@@ -65,6 +65,7 @@ export function Cart() {
                       </p>
                       <div className="flex items-center">
                         <Button
+                          className="rounded-full"
                           variant="ghost"
                           onClick={() => changeItemAmount(item.id, false)}
                         >
@@ -72,6 +73,7 @@ export function Cart() {
                         </Button>
                         {item.amount}
                         <Button
+                          className="rounded-full"
                           variant="ghost"
                           onClick={() => changeItemAmount(item.id, true)}
                         >

@@ -52,3 +52,5 @@ function App() {
 }
 
 export default App;
+
+//TODO: Add favicon, add navbar styles, make it prettier
