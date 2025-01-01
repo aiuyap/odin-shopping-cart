@@ -10,7 +10,6 @@ function App() {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         setProducts(json);
       });
   }, []);
@@ -33,8 +32,6 @@ function App() {
       setItemOnCart((current) => [...current, { id, amount }]);
     }
   }
-
-  console.log(itemOnCart);
 
   return (
     <>
