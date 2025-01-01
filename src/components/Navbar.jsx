@@ -1,9 +1,13 @@
 import { ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export function Navbar({ itemOnCart }) {
   let numOfItems = 0;
+  const inactiveLink =
+    "flex h-12 items-center justify-center transition-all px-4 hover:border-t-4";
+  const activeLink =
+    "flex h-12 items-center justify-center transition-all border-t-4 px-4";
 
   itemOnCart.forEach((item) => {
     numOfItems = numOfItems + item.amount;
@@ -14,13 +18,19 @@ export function Navbar({ itemOnCart }) {
       <Link to="/" className="text-3xl font-bold">
         TheShop
       </Link>
-      <nav className="flex justify-center gap-4 text-xl">
-        <Link to="/" className="hover:underline active:underline">
+      <nav className="flex h-full items-center justify-center text-xl">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? activeLink : inactiveLink)}
+        >
           Home
-        </Link>
-        <Link to="/shop" className="hover:underline active:underline">
+        </NavLink>
+        <NavLink
+          to="/shop"
+          className={({ isActive }) => (isActive ? activeLink : inactiveLink)}
+        >
           Shop
-        </Link>
+        </NavLink>
       </nav>
       <Link to="/cart">
         <div className="flex cursor-pointer">
