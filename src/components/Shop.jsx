@@ -28,7 +28,7 @@ export function Shop() {
                 <p>
                   <span className="font-bold">${product.price}</span>
                 </p>
-                <div className="space-x-4">
+                <div className="flex gap-2">
                   <Link to={`/shop/${product.id}`}>
                     <Button variant="outline">View</Button>
                   </Link>
