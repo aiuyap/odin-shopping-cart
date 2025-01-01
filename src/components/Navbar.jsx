@@ -32,8 +32,8 @@ export function Navbar({ itemOnCart }) {
           Shop
         </NavLink>
       </nav>
-      <Link to="/cart">
-        <div className="flex cursor-pointer">
+      <Link to="/cart" className="w-11">
+        <div className="flex cursor-pointer justify-end">
           {numOfItems > 0 && (
             <span className="relative flex size-5 items-center justify-center rounded-full bg-red-600 px-0.5 text-xs font-bold">
               {numOfItems}
