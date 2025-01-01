@@ -37,7 +37,7 @@ export function Cart() {
 
   return (
     <div className="flex justify-center p-14">
-      <Card className="min-w-80 p-4">
+      <Card className="min-w-80 sm:p-4">
         <CardHeader>
           <CardTitle className="text-2xl">MY CART</CardTitle>
           <Separator />
@@ -50,12 +50,12 @@ export function Cart() {
               return (
                 <div
                   key={item.id}
-                  className="grid grid-cols-custom-grid items-center gap-4"
+                  className="grid grid-cols-custom-grid items-center gap-2 sm:gap-4"
                 >
                   <img src={products[item.id - 1].image} className="w-14" />
                   <div className="grid">
                     <h2>{products[item.id - 1].title}</h2>
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-wrap items-center">
                       <p className="text-lg font-bold">
                         $
                         {calculateItemSubtotal(

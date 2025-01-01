@@ -15,7 +15,7 @@ export function Navbar({ itemOnCart }) {
 
   return (
     <div className="fixed flex h-12 w-screen items-center justify-between bg-black px-8 text-white shadow-md">
-      <Link to="/" className="text-3xl font-bold">
+      <Link to="/" className="hidden text-3xl font-bold sm:block">
         TheShop
       </Link>
       <nav className="flex h-full items-center justify-center text-xl">
