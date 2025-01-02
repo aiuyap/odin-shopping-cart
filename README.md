@@ -11,7 +11,7 @@ Live Preview: https://odin-shopping-site.vercel.app/
 - PropTypes
 - Tailwind CSS
 - Prettier + Tailwind plugin
-- [Lucide] (https://lucide.dev/)
-- [shadcn/ui] (https://ui.shadcn.com/)
-- [Fake Store API] (https://fakestoreapi.com/)
+- [Lucide](https://lucide.dev/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Fake Store API](https://fakestoreapi.com/)
 - Vercel for deployment
