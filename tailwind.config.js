@@ -9,7 +9,7 @@ export default {
         "custom-grid": "60px minmax(150px, 1fr) 50px",
       },
       backgroundImage: {
-        "home-bg": "url(./src/img/home-bg.jpg)",
+        "home-bg": "url(/src/img/home-bg.jpg)",
       },
       borderRadius: {
         lg: "var(--radius)",
